@@ -65,31 +65,64 @@ header p { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 a
 .cat-card .count { color: var(--muted); font-size: 0.9rem; }
 .cat-card .desc { color: var(--text); font-size: 0.95rem; margin-top: 8px; }
 
-/* Book list */
-.book-list { padding: 30px 0; }
-.book-item {
+/* Book grid */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px 0;
+}
+.book-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
 }
-.book-item:hover { border-color: var(--accent); }
-.book-title { flex: 1; font-size: 0.95rem; }
+.book-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.book-cover {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    background: #222;
+    display: block;
+}
+.book-info { padding: 12px; }
+.book-info h4 {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .book-btn {
+    display: block;
     background: var(--accent);
     color: #000;
-    padding: 8px 16px;
+    padding: 8px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 0.85rem;
-    white-space: nowrap;
+    font-size: 0.8rem;
+    text-align: center;
 }
 .book-btn:hover { background: var(--accent2); color: #000; }
+
+/* Category card cover previews */
+.cat-covers {
+    display: flex;
+    gap: 4px;
+    margin-top: 12px;
+}
+.cat-covers img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #222;
+}
 
 /* Breadcrumb */
 .breadcrumb { padding: 20px 0; color: var(--muted); font-size: 0.9rem; }
@@ -122,7 +155,7 @@ footer {
 @media (max-width: 768px) {
     header h1 { font-size: 1.8rem; }
     .categories { grid-template-columns: 1fr; }
-    .book-item { flex-direction: column; align-items: flex-start; }
+    .book-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 }
 </style>
 </head>
@@ -138,114 +171,249 @@ footer {
 <div class="affiliate-notice">Disclosure: This site contains affiliate links to Amazon. We may earn a small commission at no extra cost to you when you purchase through our links.</div>
 <p style="margin-bottom:20px; color: var(--muted);">Celebrate this incredible milestone with a beautiful 35th birthday guest book. Let friends and family write their heartfelt wishes, share memories, and leave messages that will be treasured for years to come.</p>
 <h2 style="margin-bottom:16px;">27 Guest Books Available</h2>
-<div class="book-list">
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold Balloons and Heart Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT7HS2CG" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-grid">
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT7HS2CG" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT7HS2CG.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold Ball</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Pink Roses and Golden Inscription Themed Decorati</div>
-<a href="https://www.amazon.com/dp/B0BVT8FQZ5" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold and White Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT7BHG8X" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVT8FQZ5" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVT8FQZ5.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Pink Rose" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Pink Rose</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold Ribbon and Glitter-Black Theme Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTBYSX2R" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Royal Black and Gold Themed Decorations &amp; Supplie</div>
-<a href="https://www.amazon.com/dp/B0BSWZTG4Z" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT7BHG8X" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT7BHG8X.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold and " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold and </h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Black and Gold Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT7DZTBN" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BSRDQ3NZ" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTBYSX2R" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTBYSX2R.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold Ribb" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold Ribb</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold Text and Pink Red Roses Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTRQ6BVQ" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Purple Balloon Hearts Themed Decorations &amp; Suppli</div>
-<a href="https://www.amazon.com/dp/B0BT8BF8FS" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSWZTG4Z" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSWZTG4Z.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Royal Bla" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Royal Bla</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Pink Cherry Blossom Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BT733BNX" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Pink Balloon Heart Themed Decorations &amp; Supplies,</div>
-<a href="https://www.amazon.com/dp/B0BTBW766Z" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT7DZTBN" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT7DZTBN.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold Heart Balloons Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BVDMCHH9" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BT6YF293" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSRDQ3NZ" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSRDQ3NZ.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Black Gold and Grey Balloons Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTRRLD8C" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Gold Pink Roses Floral Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, Guest Si</div>
-<a href="https://www.amazon.com/dp/1082811971" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTRQ6BVQ" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTRQ6BVQ.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold Text" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold Text</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cover Place for a Photo Cream Color Paper 12</div>
-<a href="https://www.amazon.com/dp/1086389409" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Gold White Baloons Black Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, Guest </div>
-<a href="https://www.amazon.com/dp/1082825131" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT8BF8FS" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT8BF8FS.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Purple Ba" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Purple Ba</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy Cover Place for a Photo Cream Color Pape</div>
-<a href="https://www.amazon.com/dp/1086969154" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest Sign i</div>
-<a href="https://www.amazon.com/dp/1089076967" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT733BNX" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT733BNX.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Pink Cher" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Pink Cher</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Book for Best Wishes and Messages from Fami</div>
-<a href="https://www.amazon.com/dp/1702701484" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest</div>
-<a href="https://www.amazon.com/dp/1088824021" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTBW766Z" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTBW766Z.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Pink Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Pink Ball</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Gue</div>
-<a href="https://www.amazon.com/dp/1082362662" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Glossy Cover Place for Photo Cream Color Pape</div>
-<a href="https://www.amazon.com/dp/1686339186" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVDMCHH9" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVDMCHH9.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold Hear" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Gold Hear</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: An Elegant Floral Keepsake for Her 35th Birthday Party - Includes Sign-In Pages, Wishes &amp; Memo</div>
-<a href="https://www.amazon.com/s?k=9788395816321" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 35th Birthday Party - Includes Sign-In Pag</div>
-<a href="https://www.amazon.com/s?k=9788395823527" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6YF293" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6YF293.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a 35th Birthday Party - Includes Sign-In Pa</div>
-<a href="https://www.amazon.com/s?k=9788395823015" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">35th Birthday Guest Book: An Elegant Keepsake for a Milestone 35th Birthday Celebration - Silver and White Frosted Heart</div>
-<a href="https://www.amazon.com/s?k=9788395817861" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTRRLD8C" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTRRLD8C.jpg" alt="35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Black Gol" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Keepsake Gift for Men and Women Turning 35 - Black Gol</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1082811971" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1082811971.jpg" alt="35th Birthday Guest Book: Gold Pink Roses Floral Glossy Cover, Place for a Photo" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Gold Pink Roses Floral Glossy Cover, Place for a Photo</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1086389409" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1086389409.jpg" alt="35th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cove" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cove</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1082825131" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1082825131.jpg" alt="35th Birthday Guest Book: Gold White Baloons Black Glossy Cover, Place for a Pho" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Gold White Baloons Black Glossy Cover, Place for a Pho</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1086969154" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1086969154.jpg" alt="35th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1089076967" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1089076967.jpg" alt="35th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1702701484" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1702701484.jpg" alt="35th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Boo" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Boo</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1088824021" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1088824021.jpg" alt="35th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1082362662" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1082362662.jpg" alt="35th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1686339186" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1686339186.jpg" alt="35th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Gloss" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Gloss</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395816321" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395816321.jpg" alt="35th Birthday Guest Book: An Elegant Floral Keepsake for Her 35th Birthday Party" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: An Elegant Floral Keepsake for Her 35th Birthday Party</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395823527" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395823527.jpg" alt="35th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 35" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 35</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395823015" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395823015.jpg" alt="35th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a 3" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a 3</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395817861" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395817861.jpg" alt="35th Birthday Guest Book: An Elegant Keepsake for a Milestone 35th Birthday Cele" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>35th Birthday Guest Book: An Elegant Keepsake for a Milestone 35th Birthday Cele</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
 </div>
 
 </div>

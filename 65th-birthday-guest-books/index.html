@@ -65,31 +65,64 @@ header p { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 a
 .cat-card .count { color: var(--muted); font-size: 0.9rem; }
 .cat-card .desc { color: var(--text); font-size: 0.95rem; margin-top: 8px; }
 
-/* Book list */
-.book-list { padding: 30px 0; }
-.book-item {
+/* Book grid */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px 0;
+}
+.book-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
 }
-.book-item:hover { border-color: var(--accent); }
-.book-title { flex: 1; font-size: 0.95rem; }
+.book-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.book-cover {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    background: #222;
+    display: block;
+}
+.book-info { padding: 12px; }
+.book-info h4 {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .book-btn {
+    display: block;
     background: var(--accent);
     color: #000;
-    padding: 8px 16px;
+    padding: 8px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 0.85rem;
-    white-space: nowrap;
+    font-size: 0.8rem;
+    text-align: center;
 }
 .book-btn:hover { background: var(--accent2); color: #000; }
+
+/* Category card cover previews */
+.cat-covers {
+    display: flex;
+    gap: 4px;
+    margin-top: 12px;
+}
+.cat-covers img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #222;
+}
 
 /* Breadcrumb */
 .breadcrumb { padding: 20px 0; color: var(--muted); font-size: 0.9rem; }
@@ -122,7 +155,7 @@ footer {
 @media (max-width: 768px) {
     header h1 { font-size: 1.8rem; }
     .categories { grid-template-columns: 1fr; }
-    .book-item { flex-direction: column; align-items: flex-start; }
+    .book-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 }
 </style>
 </head>
@@ -138,146 +171,321 @@ footer {
 <div class="affiliate-notice">Disclosure: This site contains affiliate links to Amazon. We may earn a small commission at no extra cost to you when you purchase through our links.</div>
 <p style="margin-bottom:20px; color: var(--muted);">Celebrate this incredible milestone with a beautiful 65th birthday guest book. Let friends and family write their heartfelt wishes, share memories, and leave messages that will be treasured for years to come.</p>
 <h2 style="margin-bottom:16px;">35 Guest Books Available</h2>
-<div class="book-list">
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Cherry Blossom Pink Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, Guest Sign </div>
-<a href="https://www.amazon.com/dp/107761294X" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-grid">
+<div class="book-card">
+<a href="https://www.amazon.com/dp/107761294X" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/107761294X.jpg" alt="65th Birthday Guest Book: Cherry Blossom Pink Glossy Cover, Place for a Photo, C" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Cherry Blossom Pink Glossy Cover, Place for a Photo, C</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Pink Roses and Golden Inscription Themed Decorati</div>
-<a href="https://www.amazon.com/dp/B0BVSXHJZK" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold Text and Pink Red Roses Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTRWSPMN" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVSXHJZK" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVSXHJZK.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Pink Rose" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Pink Rose</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest Sign i</div>
-<a href="https://www.amazon.com/dp/108908367X" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Realistic Balloons Material Layered Elegant Glossy Cover Place for a Photo Cream Color Paper 1</div>
-<a href="https://www.amazon.com/dp/1087139295" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTRWSPMN" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTRWSPMN.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold Text" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold Text</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Black and Gold Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT77SY2M" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Black Gold and Grey Balloons Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTRN1SLZ" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/108908367X" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/108908367X.jpg" alt="65th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo </h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold Heart Balloons Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BVD383PB" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BT6TVZWX" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1087139295" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1087139295.jpg" alt="65th Birthday Guest Book: Realistic Balloons Material Layered Elegant Glossy Cov" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Realistic Balloons Material Layered Elegant Glossy Cov</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold Balloons and Heart Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT71C4HP" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Funny Ice Sheet-Frozen Cover Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BT6Y6NHS" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT77SY2M" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT77SY2M.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Pink Cherry Blossom Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BT6TW16P" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold Ribbon and Glitter-Black Theme Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTC51F26" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTRN1SLZ" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTRN1SLZ.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Black Gol" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Black Gol</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Purple Balloon Hearts Themed Decorations &amp; Suppli</div>
-<a href="https://www.amazon.com/dp/B0BT9W7CHB" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold and White Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT897TB6" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVD383PB" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVD383PB.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold Hear" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold Hear</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BSSLLF3H" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Pink Balloon Heart Themed Decorations &amp; Supplies,</div>
-<a href="https://www.amazon.com/dp/B0BT79NTT4" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6TVZWX" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6TVZWX.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Royal Black and Gold Themed Decorations &amp; Supplie</div>
-<a href="https://www.amazon.com/dp/B0BSY6623S" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Exotic Floral Pink Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, Guest Sign i</div>
-<a href="https://www.amazon.com/dp/1076849830" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT71C4HP" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT71C4HP.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold Ball</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Best Wishes for a Woman from Family and Friends to Write in, 120 Pages, Cream Paper, Glossy Go</div>
-<a href="https://www.amazon.com/dp/107260325X" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Realistic Cherry Blossom Pink Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, G</div>
-<a href="https://www.amazon.com/dp/1077592892" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6Y6NHS" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6Y6NHS.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Funny Ice" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Funny Ice</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake Gift Book for Best Wishes and Messages </div>
-<a href="https://www.amazon.com/dp/1073693996" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Gue</div>
-<a href="https://www.amazon.com/dp/1082351695" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6TW16P" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6TW16P.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Pink Cher" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Pink Cher</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Guest S</div>
-<a href="https://www.amazon.com/dp/1074704525" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cover Place for a Photo Cream Color Paper 12</div>
-<a href="https://www.amazon.com/dp/1086377761" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTC51F26" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTC51F26.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold Ribb" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold Ribb</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Book for Best Wishes and Messages from Fami</div>
-<a href="https://www.amazon.com/dp/1702705773" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Glossy Cover Place for Photo Cream Color Pape</div>
-<a href="https://www.amazon.com/dp/1686341571" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT9W7CHB" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT9W7CHB.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Purple Ba" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Purple Ba</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy Cover Place for a Photo Cream Color Pape</div>
-<a href="https://www.amazon.com/dp/1086961684" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Guest Sign</div>
-<a href="https://www.amazon.com/dp/1074780019" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT897TB6" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT897TB6.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold and " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Gold and </h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest</div>
-<a href="https://www.amazon.com/dp/1088830463" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 65 - Hardback with Pink Roses and Gold Theme</div>
-<a href="https://www.amazon.com/s?k=9788396816436" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSSLLF3H" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSSLLF3H.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 65th Birthday or Retirement Party - Includ</div>
-<a href="https://www.amazon.com/s?k=9788395823589" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a 65th Birthday or Retirement Party - Inclu</div>
-<a href="https://www.amazon.com/s?k=9788395823077" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT79NTT4" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT79NTT4.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Pink Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Pink Ball</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: An Elegant Keepsake for a Milestone 65th Birthday Celebration - Silver and White Frosted Heart</div>
-<a href="https://www.amazon.com/s?k=9788395819421" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">65th Birthday Guest Book: An Elegant Floral Keepsake for Her 65th Birthday Party - Includes Sign-In Pages, Wishes &amp; Memo</div>
-<a href="https://www.amazon.com/s?k=9788395817748" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSY6623S" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSY6623S.jpg" alt="65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Royal Bla" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Gift for Men and Women Turning 65 - Royal Bla</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1076849830" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1076849830.jpg" alt="65th Birthday Guest Book: Exotic Floral Pink Glossy Cover, Place for a Photo, Cr" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Exotic Floral Pink Glossy Cover, Place for a Photo, Cr</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/107260325X" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/107260325X.jpg" alt="65th Birthday Guest Book: Best Wishes for a Woman from Family and Friends to Wri" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Best Wishes for a Woman from Family and Friends to Wri</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1077592892" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1077592892.jpg" alt="65th Birthday Guest Book: Realistic Cherry Blossom Pink Glossy Cover, Place for " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Realistic Cherry Blossom Pink Glossy Cover, Place for </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1073693996" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1073693996.jpg" alt="65th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1082351695" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1082351695.jpg" alt="65th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1074704525" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1074704525.jpg" alt="65th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Phot" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Phot</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1086377761" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1086377761.jpg" alt="65th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cove" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cove</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1702705773" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1702705773.jpg" alt="65th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Boo" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Boo</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1686341571" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1686341571.jpg" alt="65th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Gloss" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Gloss</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1086961684" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1086961684.jpg" alt="65th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1074780019" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1074780019.jpg" alt="65th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1088830463" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1088830463.jpg" alt="65th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788396816436" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788396816436.jpg" alt="65th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 65 -" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 65 -</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395823589" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395823589.jpg" alt="65th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 65" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 65</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395823077" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395823077.jpg" alt="65th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a 6" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a 6</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395819421" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395819421.jpg" alt="65th Birthday Guest Book: An Elegant Keepsake for a Milestone 65th Birthday Cele" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: An Elegant Keepsake for a Milestone 65th Birthday Cele</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395817748" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395817748.jpg" alt="65th Birthday Guest Book: An Elegant Floral Keepsake for Her 65th Birthday Party" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>65th Birthday Guest Book: An Elegant Floral Keepsake for Her 65th Birthday Party</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
 </div>
 
 </div>

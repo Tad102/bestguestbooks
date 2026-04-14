@@ -65,31 +65,64 @@ header p { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 a
 .cat-card .count { color: var(--muted); font-size: 0.9rem; }
 .cat-card .desc { color: var(--text); font-size: 0.95rem; margin-top: 8px; }
 
-/* Book list */
-.book-list { padding: 30px 0; }
-.book-item {
+/* Book grid */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px 0;
+}
+.book-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
 }
-.book-item:hover { border-color: var(--accent); }
-.book-title { flex: 1; font-size: 0.95rem; }
+.book-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.book-cover {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    background: #222;
+    display: block;
+}
+.book-info { padding: 12px; }
+.book-info h4 {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .book-btn {
+    display: block;
     background: var(--accent);
     color: #000;
-    padding: 8px 16px;
+    padding: 8px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 0.85rem;
-    white-space: nowrap;
+    font-size: 0.8rem;
+    text-align: center;
 }
 .book-btn:hover { background: var(--accent2); color: #000; }
+
+/* Category card cover previews */
+.cat-covers {
+    display: flex;
+    gap: 4px;
+    margin-top: 12px;
+}
+.cat-covers img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #222;
+}
 
 /* Breadcrumb */
 .breadcrumb { padding: 20px 0; color: var(--muted); font-size: 0.9rem; }
@@ -122,7 +155,7 @@ footer {
 @media (max-width: 768px) {
     header h1 { font-size: 1.8rem; }
     .categories { grid-template-columns: 1fr; }
-    .book-item { flex-direction: column; align-items: flex-start; }
+    .book-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 }
 </style>
 </head>
@@ -138,90 +171,195 @@ footer {
 <div class="affiliate-notice">Disclosure: This site contains affiliate links to Amazon. We may earn a small commission at no extra cost to you when you purchase through our links.</div>
 <p style="margin-bottom:20px; color: var(--muted);">Celebrate this incredible milestone with a beautiful 10th birthday guest book. Let friends and family write their heartfelt wishes, share memories, and leave messages that will be treasured for years to come.</p>
 <h2 style="margin-bottom:16px;">21 Guest Books Available</h2>
-<div class="book-list">
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BT7S1469" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-grid">
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT7S1469" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT7S1469.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Pink Roses and Golden Inscription Themed Decorati</div>
-<a href="https://www.amazon.com/dp/B0BVT72L6J" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Funny Ice Sheet-Frozen Cover Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BT6ZRQ7B" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVT72L6J" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVT72L6J.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Pink Rose" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Pink Rose</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - A Gold Ribbon and the Glitter-black Theme Decorat</div>
-<a href="https://www.amazon.com/dp/B0BT79NVJH" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Gold Text and Pink Red Roses Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTYQ8X7X" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6ZRQ7B" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6ZRQ7B.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Funny Ice" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Funny Ice</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Pink Cherry Blossom Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BT7FZQY7" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Purple Balloon Hearts Themed Decorations &amp; Suppli</div>
-<a href="https://www.amazon.com/dp/B0BT74V2C7" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT79NVJH" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT79NVJH.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - A Gold Ri" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - A Gold Ri</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Gold Balloons and Heart Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT79PGJ6" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - White and Gold Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT6YF2KP" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTYQ8X7X" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTYQ8X7X.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Gold Text" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Gold Text</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Black and Gold Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT7GNH3B" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Black Gold and Grey Balloons Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTXBW5HB" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT7FZQY7" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT7FZQY7.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Pink Cher" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Pink Cher</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BSJC476S" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Gold Heart Balloons Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BVD5T3LL" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT74V2C7" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT74V2C7.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Purple Ba" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Purple Ba</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Royal Black and Gold Themed Decorations &amp; Supplie</div>
-<a href="https://www.amazon.com/dp/B0BT462HJW" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Pink Balloon Heart Themed Decorations &amp; Supplies,</div>
-<a href="https://www.amazon.com/dp/B0BT71C4DM" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT79PGJ6" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT79PGJ6.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Gold Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Gold Ball</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake Gift Book for Best Wishes and Messages </div>
-<a href="https://www.amazon.com/dp/1073625974" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Guest S</div>
-<a href="https://www.amazon.com/dp/1074728483" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6YF2KP" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6YF2KP.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - White and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - White and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest</div>
-<a href="https://www.amazon.com/dp/1088817378" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake Gift Book for Best Wishes and Messages </div>
-<a href="https://www.amazon.com/dp/1073623947" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT7GNH3B" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT7GNH3B.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Guest Sign</div>
-<a href="https://www.amazon.com/dp/1074778987" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">10th Birthday Guest Book: A Fun Keepsake for the New Double-Digit Kid - Modern Gold and White Party Decorations and Supp</div>
-<a href="https://www.amazon.com/s?k=9788395820724" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTXBW5HB" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTXBW5HB.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Black Gol" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Black Gol</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSJC476S" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSJC476S.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVD5T3LL" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVD5T3LL.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Gold Hear" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Gold Hear</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT462HJW" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT462HJW.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Royal Bla" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Royal Bla</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT71C4DM" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT71C4DM.jpg" alt="10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Pink Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Keepsake Gift for Men and Women Turning 10 - Pink Ball</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1073625974" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1073625974.jpg" alt="10th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1074728483" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1074728483.jpg" alt="10th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Phot" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Phot</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1088817378" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1088817378.jpg" alt="10th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1073623947" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1073623947.jpg" alt="10th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1074778987" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1074778987.jpg" alt="10th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395820724" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395820724.jpg" alt="10th Birthday Guest Book: A Fun Keepsake for the New Double-Digit Kid - Modern G" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>10th Birthday Guest Book: A Fun Keepsake for the New Double-Digit Kid - Modern G</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
 </div>
 
 </div>

@@ -65,31 +65,64 @@ header p { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 a
 .cat-card .count { color: var(--muted); font-size: 0.9rem; }
 .cat-card .desc { color: var(--text); font-size: 0.95rem; margin-top: 8px; }
 
-/* Book list */
-.book-list { padding: 30px 0; }
-.book-item {
+/* Book grid */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px 0;
+}
+.book-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
 }
-.book-item:hover { border-color: var(--accent); }
-.book-title { flex: 1; font-size: 0.95rem; }
+.book-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.book-cover {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    background: #222;
+    display: block;
+}
+.book-info { padding: 12px; }
+.book-info h4 {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .book-btn {
+    display: block;
     background: var(--accent);
     color: #000;
-    padding: 8px 16px;
+    padding: 8px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 0.85rem;
-    white-space: nowrap;
+    font-size: 0.8rem;
+    text-align: center;
 }
 .book-btn:hover { background: var(--accent2); color: #000; }
+
+/* Category card cover previews */
+.cat-covers {
+    display: flex;
+    gap: 4px;
+    margin-top: 12px;
+}
+.cat-covers img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #222;
+}
 
 /* Breadcrumb */
 .breadcrumb { padding: 20px 0; color: var(--muted); font-size: 0.9rem; }
@@ -122,7 +155,7 @@ footer {
 @media (max-width: 768px) {
     header h1 { font-size: 1.8rem; }
     .categories { grid-template-columns: 1fr; }
-    .book-item { flex-direction: column; align-items: flex-start; }
+    .book-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 }
 </style>
 </head>
@@ -138,118 +171,258 @@ footer {
 <div class="affiliate-notice">Disclosure: This site contains affiliate links to Amazon. We may earn a small commission at no extra cost to you when you purchase through our links.</div>
 <p style="margin-bottom:20px; color: var(--muted);">Celebrate this incredible milestone with a beautiful 55th birthday guest book. Let friends and family write their heartfelt wishes, share memories, and leave messages that will be treasured for years to come.</p>
 <h2 style="margin-bottom:16px;">28 Guest Books Available</h2>
-<div class="book-list">
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Pink Roses and Golden Inscription Themed Decorati</div>
-<a href="https://www.amazon.com/dp/B0BVSXXR66" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-grid">
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVSXXR66" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVSXXR66.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Pink Rose" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Pink Rose</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Funny Ice Sheet-Frozen Cover Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTCXZZVG" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold Balloons and Heart Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT89CR47" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTCXZZVG" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTCXZZVG.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Funny Ice" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Funny Ice</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold Text and Pink Red Roses Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTYM55MG" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Golden Frame Pink Roses Floral Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, </div>
-<a href="https://www.amazon.com/dp/1079323554" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT89CR47" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT89CR47.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold Ball</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold and White Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT6YZFP8" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Purple Balloon Hearts Themed Decorations &amp; Suppli</div>
-<a href="https://www.amazon.com/dp/B0BT6N4XSL" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTYM55MG" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTYM55MG.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold Text" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold Text</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Black and Gold Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BTCXZZST" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BSJFYDRJ" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1079323554" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1079323554.jpg" alt="55th Birthday Guest Book: Golden Frame Pink Roses Floral Glossy Cover, Place for" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Golden Frame Pink Roses Floral Glossy Cover, Place for</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Pink Cherry Blossom Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BT76NCQJ" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Black Gold and Grey Balloons Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTS54652" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6YZFP8" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6YZFP8.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold and " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold and </h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BT733QBR" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold Ribbon and Glitter-Black Theme Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BT72XKFP" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6N4XSL" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6N4XSL.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Purple Ba" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Purple Ba</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold Heart Balloons Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BVDYCVSP" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Pink Balloon Heart Themed Decorations &amp; Supplies,</div>
-<a href="https://www.amazon.com/dp/B0BTBRZLHQ" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTCXZZST" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTCXZZST.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Royal Black and Gold Themed Decorations &amp; Supplie</div>
-<a href="https://www.amazon.com/dp/B0BT4ZFV1F" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Gold White Baloons Black Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, Guest </div>
-<a href="https://www.amazon.com/dp/1082821160" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSJFYDRJ" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSJFYDRJ.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Gue</div>
-<a href="https://www.amazon.com/dp/1082337439" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Glossy Cover Place for Photo Cream Color Pape</div>
-<a href="https://www.amazon.com/dp/1686340850" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT76NCQJ" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT76NCQJ.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Pink Cher" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Pink Cher</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest Sign i</div>
-<a href="https://www.amazon.com/dp/1089081286" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest</div>
-<a href="https://www.amazon.com/dp/1088815340" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTS54652" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTS54652.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Black Gol" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Black Gol</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cover Place for a Photo Cream Color Paper 12</div>
-<a href="https://www.amazon.com/dp/1086380797" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy Cover Place for a Photo Cream Color Pape</div>
-<a href="https://www.amazon.com/dp/1086965701" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT733QBR" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT733QBR.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: Gold Pink Roses Floral Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, Guest Si</div>
-<a href="https://www.amazon.com/dp/1082809527" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: An Elegant Floral Keepsake for Her 55th Birthday Party - Includes Sign-In Pages, Wishes &amp; Memo</div>
-<a href="https://www.amazon.com/s?k=9788395816307" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT72XKFP" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT72XKFP.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold Ribb" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold Ribb</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 55th Birthday Party - Includes Sign-In Pag</div>
-<a href="https://www.amazon.com/s?k=9788395823565" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a 55th Birthday Party - Includes Sign-In Pa</div>
-<a href="https://www.amazon.com/s?k=9788395823053" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVDYCVSP" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVDYCVSP.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold Hear" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Gold Hear</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">55th Birthday Guest Book: An Elegant Keepsake for a Milestone 55th Birthday Celebration - Silver and White Frosted Heart</div>
-<a href="https://www.amazon.com/s?k=9788395819407" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTBRZLHQ" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTBRZLHQ.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Pink Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Pink Ball</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT4ZFV1F" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT4ZFV1F.jpg" alt="55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Royal Bla" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Keepsake Gift for Men and Women Turning 55 - Royal Bla</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1082821160" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1082821160.jpg" alt="55th Birthday Guest Book: Gold White Baloons Black Glossy Cover, Place for a Pho" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Gold White Baloons Black Glossy Cover, Place for a Pho</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1082337439" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1082337439.jpg" alt="55th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1686340850" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1686340850.jpg" alt="55th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Gloss" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Gloss</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1089081286" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1089081286.jpg" alt="55th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1088815340" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1088815340.jpg" alt="55th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1086380797" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1086380797.jpg" alt="55th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cove" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cove</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1086965701" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1086965701.jpg" alt="55th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1082809527" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1082809527.jpg" alt="55th Birthday Guest Book: Gold Pink Roses Floral Glossy Cover, Place for a Photo" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: Gold Pink Roses Floral Glossy Cover, Place for a Photo</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395816307" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395816307.jpg" alt="55th Birthday Guest Book: An Elegant Floral Keepsake for Her 55th Birthday Party" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: An Elegant Floral Keepsake for Her 55th Birthday Party</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395823565" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395823565.jpg" alt="55th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 55" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 55</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395823053" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395823053.jpg" alt="55th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a 5" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a 5</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395819407" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395819407.jpg" alt="55th Birthday Guest Book: An Elegant Keepsake for a Milestone 55th Birthday Cele" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>55th Birthday Guest Book: An Elegant Keepsake for a Milestone 55th Birthday Cele</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
 </div>
 
 </div>

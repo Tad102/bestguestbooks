@@ -65,31 +65,64 @@ header p { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 a
 .cat-card .count { color: var(--muted); font-size: 0.9rem; }
 .cat-card .desc { color: var(--text); font-size: 0.95rem; margin-top: 8px; }
 
-/* Book list */
-.book-list { padding: 30px 0; }
-.book-item {
+/* Book grid */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px 0;
+}
+.book-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
 }
-.book-item:hover { border-color: var(--accent); }
-.book-title { flex: 1; font-size: 0.95rem; }
+.book-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.book-cover {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    background: #222;
+    display: block;
+}
+.book-info { padding: 12px; }
+.book-info h4 {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .book-btn {
+    display: block;
     background: var(--accent);
     color: #000;
-    padding: 8px 16px;
+    padding: 8px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 0.85rem;
-    white-space: nowrap;
+    font-size: 0.8rem;
+    text-align: center;
 }
 .book-btn:hover { background: var(--accent2); color: #000; }
+
+/* Category card cover previews */
+.cat-covers {
+    display: flex;
+    gap: 4px;
+    margin-top: 12px;
+}
+.cat-covers img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #222;
+}
 
 /* Breadcrumb */
 .breadcrumb { padding: 20px 0; color: var(--muted); font-size: 0.9rem; }
@@ -122,7 +155,7 @@ footer {
 @media (max-width: 768px) {
     header h1 { font-size: 1.8rem; }
     .categories { grid-template-columns: 1fr; }
-    .book-item { flex-direction: column; align-items: flex-start; }
+    .book-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 }
 </style>
 </head>
@@ -138,126 +171,276 @@ footer {
 <div class="affiliate-notice">Disclosure: This site contains affiliate links to Amazon. We may earn a small commission at no extra cost to you when you purchase through our links.</div>
 <p style="margin-bottom:20px; color: var(--muted);">Celebrate this incredible milestone with a beautiful 13th birthday guest book. Let friends and family write their heartfelt wishes, share memories, and leave messages that will be treasured for years to come.</p>
 <h2 style="margin-bottom:16px;">30 Guest Books Available</h2>
-<div class="book-list">
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Gold Text and Pink Red Roses Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTRQ2K13" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-grid">
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTRQ2K13" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTRQ2K13.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Gold Text" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Gold Text</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Golden Hearts Balloons Theme Elegant Glossy Cover, Place for a Photo, Cream Color Paper, 123 P</div>
-<a href="https://www.amazon.com/dp/1082438723" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Pink Roses and Golden Inscription Themed Decorati</div>
-<a href="https://www.amazon.com/dp/B0BVTBXP6J" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1082438723" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1082438723.jpg" alt="13th Birthday Guest Book: Golden Hearts Balloons Theme Elegant Glossy Cover, Pla" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Golden Hearts Balloons Theme Elegant Glossy Cover, Pla</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Gold Balloons and Heart Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT76LPM7" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BSRDQ3PH" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVTBXP6J" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVTBXP6J.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Pink Rose" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Pink Rose</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Purple Balloon Hearts Themed Decorations &amp; Suppli</div>
-<a href="https://www.amazon.com/dp/B0BT6N4XT6" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - A Gold Ribbon and the Glitter-black Theme Decorat</div>
-<a href="https://www.amazon.com/dp/B0BT6RSQRC" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT76LPM7" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT76LPM7.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Gold Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Gold Ball</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Black and Gold Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT6Y6NG4" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Pink Balloon Heart Themed Decorations &amp; Supplies,</div>
-<a href="https://www.amazon.com/dp/B0BT967C41" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSRDQ3PH" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSRDQ3PH.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Royal Black and Gold Themed Decorations &amp; Supplie</div>
-<a href="https://www.amazon.com/dp/B0BSX1X1JD" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - White and Gold Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT7G3D57" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6N4XT6" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6N4XT6.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Purple Ba" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Purple Ba</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Black Gold and Grey Balloons Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTYGC7ZP" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Pink Cherry Blossom Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BT7FZQY1" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6RSQRC" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6RSQRC.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - A Gold Ri" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - A Gold Ri</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Gold Heart Balloons Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BVC8JGQX" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BT71WGB4" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6Y6NG4" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6Y6NG4.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Funny Ice Sheet-Frozen Cover Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BT6ZRQ76" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Exotic Floral Pink Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, Guest Sign i</div>
-<a href="https://www.amazon.com/dp/1076840272" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT967C41" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT967C41.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Pink Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Pink Ball</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Guest Sign</div>
-<a href="https://www.amazon.com/dp/1080351620" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake Gift Book for Best Wishes and Messages </div>
-<a href="https://www.amazon.com/dp/1073627853" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSX1X1JD" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSX1X1JD.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Royal Bla" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Royal Bla</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Best Wishes from Family and Friends to Write in, 120 Pages, Cream Paper, Glossy Gold Pink Rose</div>
-<a href="https://www.amazon.com/dp/1072463644" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest Sign i</div>
-<a href="https://www.amazon.com/dp/1089063741" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT7G3D57" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT7G3D57.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - White and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - White and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Gue</div>
-<a href="https://www.amazon.com/dp/1082376345" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Book for Best Wishes and Messages from Fami</div>
-<a href="https://www.amazon.com/dp/1702697312" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTYGC7ZP" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTYGC7ZP.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Black Gol" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Black Gol</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Glossy Cover Place for Photo Cream Color Pape</div>
-<a href="https://www.amazon.com/dp/1686347634" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest</div>
-<a href="https://www.amazon.com/dp/1088816444" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT7FZQY1" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT7FZQY1.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Pink Cher" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Pink Cher</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: A Fun Keepsake for the New Official Teenager - Elegant Gold and White Party Decorations and Su</div>
-<a href="https://www.amazon.com/s?k=9788395820731" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: A Cute Keepsake for the New Official Teenager - Fun Pink Heart Balloon Party Decorations and S</div>
-<a href="https://www.amazon.com/s?k=9788395820717" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVC8JGQX" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVC8JGQX.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Gold Hear" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Gold Hear</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: A Fun Keepsake for the New Official Teenager - Elegant Gold Balloon Party Decorations and Supp</div>
-<a href="https://www.amazon.com/s?k=9788395820700" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: An Elegant Keepsake for the New Official Teenager - Silver and White Frosted Heart Theme - Inc</div>
-<a href="https://www.amazon.com/s?k=9788395817779" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT71WGB4" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT71WGB4.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">13th Birthday Guest Book: A Floral Keepsake for the New Official Teenager - Elegant Pink and Gold Party Decorations and </div>
-<a href="https://www.amazon.com/s?k=9788395817731" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6ZRQ76" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6ZRQ76.jpg" alt="13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Funny Ice" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Keepsake Gift for Men and Women Turning 13 - Funny Ice</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1076840272" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1076840272.jpg" alt="13th Birthday Guest Book: Exotic Floral Pink Glossy Cover, Place for a Photo, Cr" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Exotic Floral Pink Glossy Cover, Place for a Photo, Cr</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1080351620" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1080351620.jpg" alt="13th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1073627853" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1073627853.jpg" alt="13th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1072463644" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1072463644.jpg" alt="13th Birthday Guest Book: Best Wishes from Family and Friends to Write in, 120 P" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Best Wishes from Family and Friends to Write in, 120 P</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1089063741" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1089063741.jpg" alt="13th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1082376345" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1082376345.jpg" alt="13th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1702697312" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1702697312.jpg" alt="13th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Boo" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Boo</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1686347634" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1686347634.jpg" alt="13th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Gloss" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Gloss</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1088816444" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1088816444.jpg" alt="13th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395820731" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395820731.jpg" alt="13th Birthday Guest Book: A Fun Keepsake for the New Official Teenager - Elegant" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: A Fun Keepsake for the New Official Teenager - Elegant</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395820717" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395820717.jpg" alt="13th Birthday Guest Book: A Cute Keepsake for the New Official Teenager - Fun Pi" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: A Cute Keepsake for the New Official Teenager - Fun Pi</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395820700" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395820700.jpg" alt="13th Birthday Guest Book: A Fun Keepsake for the New Official Teenager - Elegant" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: A Fun Keepsake for the New Official Teenager - Elegant</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395817779" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395817779.jpg" alt="13th Birthday Guest Book: An Elegant Keepsake for the New Official Teenager - Si" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: An Elegant Keepsake for the New Official Teenager - Si</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395817731" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395817731.jpg" alt="13th Birthday Guest Book: A Floral Keepsake for the New Official Teenager - Eleg" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>13th Birthday Guest Book: A Floral Keepsake for the New Official Teenager - Eleg</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
 </div>
 
 </div>

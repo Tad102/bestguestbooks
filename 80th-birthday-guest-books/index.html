@@ -65,31 +65,64 @@ header p { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 a
 .cat-card .count { color: var(--muted); font-size: 0.9rem; }
 .cat-card .desc { color: var(--text); font-size: 0.95rem; margin-top: 8px; }
 
-/* Book list */
-.book-list { padding: 30px 0; }
-.book-item {
+/* Book grid */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px 0;
+}
+.book-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
 }
-.book-item:hover { border-color: var(--accent); }
-.book-title { flex: 1; font-size: 0.95rem; }
+.book-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.book-cover {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    background: #222;
+    display: block;
+}
+.book-info { padding: 12px; }
+.book-info h4 {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .book-btn {
+    display: block;
     background: var(--accent);
     color: #000;
-    padding: 8px 16px;
+    padding: 8px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 0.85rem;
-    white-space: nowrap;
+    font-size: 0.8rem;
+    text-align: center;
 }
 .book-btn:hover { background: var(--accent2); color: #000; }
+
+/* Category card cover previews */
+.cat-covers {
+    display: flex;
+    gap: 4px;
+    margin-top: 12px;
+}
+.cat-covers img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #222;
+}
 
 /* Breadcrumb */
 .breadcrumb { padding: 20px 0; color: var(--muted); font-size: 0.9rem; }
@@ -122,7 +155,7 @@ footer {
 @media (max-width: 768px) {
     header h1 { font-size: 1.8rem; }
     .categories { grid-template-columns: 1fr; }
-    .book-item { flex-direction: column; align-items: flex-start; }
+    .book-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 }
 </style>
 </head>
@@ -138,170 +171,375 @@ footer {
 <div class="affiliate-notice">Disclosure: This site contains affiliate links to Amazon. We may earn a small commission at no extra cost to you when you purchase through our links.</div>
 <p style="margin-bottom:20px; color: var(--muted);">Celebrate this incredible milestone with a beautiful 80th birthday guest book. Let friends and family write their heartfelt wishes, share memories, and leave messages that will be treasured for years to come.</p>
 <h2 style="margin-bottom:16px;">41 Guest Books Available</h2>
-<div class="book-list">
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BT733B9Z" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-grid">
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT733B9Z" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT733B9Z.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake Gift Book for Best Wishes and Messages </div>
-<a href="https://www.amazon.com/dp/1073705013" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Pink Cherry Blossom Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BT6YFHVH" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1073705013" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1073705013.jpg" alt="80th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Black and Gold Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BTC1KBPR" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BSTZ1Q48" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6YFHVH" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6YFHVH.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Pink Cher" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Pink Cher</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Golden Hearts Balloons Theme Elegant Glossy Cover, Place for a Photo, Cream Color Paper, 123 P</div>
-<a href="https://www.amazon.com/dp/1082404454" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Gue</div>
-<a href="https://www.amazon.com/dp/1082357847" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTC1KBPR" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTC1KBPR.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Best Wishes for a Woman from Family and Friends to Write in, 120 Pages, Cream Paper, Glossy Go</div>
-<a href="https://www.amazon.com/dp/1072607050" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Funny Ice Sheet-Frozen Cover Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTBYSWZ7" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSTZ1Q48" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSTZ1Q48.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold Heart Balloons Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BVDF6VKP" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold Ribbon and Glitter-Black Theme Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BT732FWK" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1082404454" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1082404454.jpg" alt="80th Birthday Guest Book: Golden Hearts Balloons Theme Elegant Glossy Cover, Pla" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Golden Hearts Balloons Theme Elegant Glossy Cover, Pla</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold and White Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT7S14D5" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake Gift Book for Best Wishes and Messages </div>
-<a href="https://www.amazon.com/dp/1073704262" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1082357847" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1082357847.jpg" alt="80th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a </h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest Sign i</div>
-<a href="https://www.amazon.com/dp/1089087233" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Celebration Birthday Party Keepsake Gift Book for Best Wishes and Messages from Family and Fri</div>
-<a href="https://www.amazon.com/dp/1702124290" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1072607050" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1072607050.jpg" alt="80th Birthday Guest Book: Best Wishes for a Woman from Family and Friends to Wri" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Best Wishes for a Woman from Family and Friends to Wri</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Pink Roses and Golden Inscription Themed Decorati</div>
-<a href="https://www.amazon.com/dp/B0BVTFZ1JN" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Cherry Blossom Floral Pink Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, Gues</div>
-<a href="https://www.amazon.com/dp/1077432526" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTBYSWZ7" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTBYSWZ7.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Funny Ice" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Funny Ice</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Book for Best Wishes and Messages from Fami</div>
-<a href="https://www.amazon.com/dp/1702707180" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Realistic Balloons Material Layered Elegant Glossy Cover Place for a Photo Cream Color Paper 1</div>
-<a href="https://www.amazon.com/dp/1087134811" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVDF6VKP" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVDF6VKP.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold Hear" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold Hear</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Pink Love Balloons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest Si</div>
-<a href="https://www.amazon.com/dp/1088691323" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Purple Balloon Hearts Themed Decorations &amp; Suppli</div>
-<a href="https://www.amazon.com/dp/B0BT9476JF" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT732FWK" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT732FWK.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold Ribb" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold Ribb</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Black Gold and Grey Balloons Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTXC3264" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold Balloons and Heart Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BTBK7YL7" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT7S14D5" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT7S14D5.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold and " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold and </h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold Text and Pink Red Roses Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTRMYC5P" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Royal Black and Gold Themed Decorations &amp; Supplie</div>
-<a href="https://www.amazon.com/dp/B0BSZ58PXC" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1073704262" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1073704262.jpg" alt="80th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Pink Balloon Heart Themed Decorations &amp; Supplies,</div>
-<a href="https://www.amazon.com/dp/B0BT6ZXQ5P" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Glossy Cover Place for Photo Cream Color Pape</div>
-<a href="https://www.amazon.com/dp/1686335334" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1089087233" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1089087233.jpg" alt="80th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo </h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy Cover Place for a Photo Cream Color Pape</div>
-<a href="https://www.amazon.com/dp/1086957172" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest</div>
-<a href="https://www.amazon.com/dp/1088834809" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1702124290" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1702124290.jpg" alt="80th Birthday Guest Book: Celebration Birthday Party Keepsake Gift Book for Best" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Celebration Birthday Party Keepsake Gift Book for Best</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Guest S</div>
-<a href="https://www.amazon.com/dp/1074710320" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Yellow Balloons Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, Guest Sign in f</div>
-<a href="https://www.amazon.com/dp/1078182329" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVTFZ1JN" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVTFZ1JN.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Pink Rose" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Pink Rose</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cover Place for a Photo Cream Color Paper 12</div>
-<a href="https://www.amazon.com/dp/1086371011" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Cherry Blossom Pink Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, Guest Sign </div>
-<a href="https://www.amazon.com/dp/1077617763" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1077432526" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1077432526.jpg" alt="80th Birthday Guest Book: Cherry Blossom Floral Pink Glossy Cover, Place for a P" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Cherry Blossom Floral Pink Glossy Cover, Place for a P</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Guest Sign</div>
-<a href="https://www.amazon.com/dp/1074785630" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Realistic Cherry Blossom Pink Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, G</div>
-<a href="https://www.amazon.com/dp/1077600321" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1702707180" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1702707180.jpg" alt="80th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Boo" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Boo</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: An Elegant Floral Keepsake for Her 80th Birthday Party - Includes Sign-In Pages, Wishes &amp; Memo</div>
-<a href="https://www.amazon.com/s?k=9788395705397" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 80 - Hardback with Pink Roses and Gold Theme</div>
-<a href="https://www.amazon.com/s?k=9788396816405" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1087134811" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1087134811.jpg" alt="80th Birthday Guest Book: Realistic Balloons Material Layered Elegant Glossy Cov" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Realistic Balloons Material Layered Elegant Glossy Cov</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80 &amp; Fabulous: An Elegant Black and Gold 80th Birthday Guest Book &amp; Keepsake Journal for Her - Includes Sign-in Pages, M</div>
-<a href="https://www.amazon.com/s?k=9788396705815" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 80th Birthday Party - Includes Sign-In Pag</div>
-<a href="https://www.amazon.com/s?k=9788395823718" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1088691323" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1088691323.jpg" alt="80th Birthday Guest Book: Pink Love Balloons Elegant Glossy Cover Place for a Ph" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Pink Love Balloons Elegant Glossy Cover Place for a Ph</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: An Elegant 80th Birthday Keepsake &amp; Memory Journal with Golden Hearts Balloons Theme, Photo Pa</div>
-<a href="https://www.amazon.com/s?k=9788395823404" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">80th Birthday Guest Book: An Elegant Keepsake for a Milestone 80th Birthday Celebration - Silver and White Frosted Heart</div>
-<a href="https://www.amazon.com/s?k=9788395819452" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT9476JF" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT9476JF.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Purple Ba" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Purple Ba</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTXC3264" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTXC3264.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Black Gol" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Black Gol</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTBK7YL7" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTBK7YL7.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold Ball</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTRMYC5P" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTRMYC5P.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold Text" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Gold Text</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSZ58PXC" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSZ58PXC.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Royal Bla" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Royal Bla</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6ZXQ5P" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6ZXQ5P.jpg" alt="80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Pink Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Gift for Men and Women Turning 80 - Pink Ball</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1686335334" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1686335334.jpg" alt="80th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Gloss" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Gloss</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1086957172" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1086957172.jpg" alt="80th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1088834809" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1088834809.jpg" alt="80th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1074710320" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1074710320.jpg" alt="80th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Phot" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Phot</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1078182329" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1078182329.jpg" alt="80th Birthday Guest Book: Yellow Balloons Glossy Cover, Place for a Photo, Cream" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Yellow Balloons Glossy Cover, Place for a Photo, Cream</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1086371011" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1086371011.jpg" alt="80th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cove" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cove</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1077617763" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1077617763.jpg" alt="80th Birthday Guest Book: Cherry Blossom Pink Glossy Cover, Place for a Photo, C" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Cherry Blossom Pink Glossy Cover, Place for a Photo, C</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1074785630" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1074785630.jpg" alt="80th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1077600321" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1077600321.jpg" alt="80th Birthday Guest Book: Realistic Cherry Blossom Pink Glossy Cover, Place for " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Realistic Cherry Blossom Pink Glossy Cover, Place for </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395705397" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395705397.jpg" alt="80th Birthday Guest Book: An Elegant Floral Keepsake for Her 80th Birthday Party" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: An Elegant Floral Keepsake for Her 80th Birthday Party</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788396816405" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788396816405.jpg" alt="80th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 80 -" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 80 -</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788396705815" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788396705815.jpg" alt="80 &amp; Fabulous: An Elegant Black and Gold 80th Birthday Guest Book &amp; Keepsake Jou" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80 &amp; Fabulous: An Elegant Black and Gold 80th Birthday Guest Book &amp; Keepsake Jou</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395823718" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395823718.jpg" alt="80th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 80" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 80</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395823404" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395823404.jpg" alt="80th Birthday Guest Book: An Elegant 80th Birthday Keepsake &amp; Memory Journal wit" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: An Elegant 80th Birthday Keepsake &amp; Memory Journal wit</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395819452" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395819452.jpg" alt="80th Birthday Guest Book: An Elegant Keepsake for a Milestone 80th Birthday Cele" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>80th Birthday Guest Book: An Elegant Keepsake for a Milestone 80th Birthday Cele</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
 </div>
 
 </div>

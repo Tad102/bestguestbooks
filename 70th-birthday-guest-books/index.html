@@ -65,31 +65,64 @@ header p { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 a
 .cat-card .count { color: var(--muted); font-size: 0.9rem; }
 .cat-card .desc { color: var(--text); font-size: 0.95rem; margin-top: 8px; }
 
-/* Book list */
-.book-list { padding: 30px 0; }
-.book-item {
+/* Book grid */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px 0;
+}
+.book-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
 }
-.book-item:hover { border-color: var(--accent); }
-.book-title { flex: 1; font-size: 0.95rem; }
+.book-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.book-cover {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    background: #222;
+    display: block;
+}
+.book-info { padding: 12px; }
+.book-info h4 {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .book-btn {
+    display: block;
     background: var(--accent);
     color: #000;
-    padding: 8px 16px;
+    padding: 8px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 0.85rem;
-    white-space: nowrap;
+    font-size: 0.8rem;
+    text-align: center;
 }
 .book-btn:hover { background: var(--accent2); color: #000; }
+
+/* Category card cover previews */
+.cat-covers {
+    display: flex;
+    gap: 4px;
+    margin-top: 12px;
+}
+.cat-covers img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #222;
+}
 
 /* Breadcrumb */
 .breadcrumb { padding: 20px 0; color: var(--muted); font-size: 0.9rem; }
@@ -122,7 +155,7 @@ footer {
 @media (max-width: 768px) {
     header h1 { font-size: 1.8rem; }
     .categories { grid-template-columns: 1fr; }
-    .book-item { flex-direction: column; align-items: flex-start; }
+    .book-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 }
 </style>
 </head>
@@ -138,166 +171,366 @@ footer {
 <div class="affiliate-notice">Disclosure: This site contains affiliate links to Amazon. We may earn a small commission at no extra cost to you when you purchase through our links.</div>
 <p style="margin-bottom:20px; color: var(--muted);">Celebrate this incredible milestone with a beautiful 70th birthday guest book. Let friends and family write their heartfelt wishes, share memories, and leave messages that will be treasured for years to come.</p>
 <h2 style="margin-bottom:16px;">40 Guest Books Available</h2>
-<div class="book-list">
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold Text and Pink Red Roses Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTS35LJB" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-grid">
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTS35LJB" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTS35LJB.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold Text" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold Text</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Black and Gold Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT7DZTBF" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest</div>
-<a href="https://www.amazon.com/dp/1088831281" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT7DZTBF" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT7DZTBF.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold and White Balloons Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT75V83N" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Realistic Cherry Blossom Pink Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, G</div>
-<a href="https://www.amazon.com/dp/1077594011" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1088831281" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1088831281.jpg" alt="70th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Pink Cherry Blossom Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BT6N4JSY" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Pink Roses and Golden Inscription Themed Decorati</div>
-<a href="https://www.amazon.com/dp/B0BVTLRXF2" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT75V83N" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT75V83N.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold and " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold and </h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">Retirement &amp; 70th Birthday Guest Book: Celebration Party Keepsake Gift Book for Best Wishes and Messages from Family and</div>
-<a href="https://www.amazon.com/dp/170420710X" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Celebration Birthday Party Keepsake Gift Book for Best Wishes and Messages from Family and Fri</div>
-<a href="https://www.amazon.com/dp/1702125599" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1077594011" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1077594011.jpg" alt="70th Birthday Guest Book: Realistic Cherry Blossom Pink Glossy Cover, Place for " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Realistic Cherry Blossom Pink Glossy Cover, Place for </h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BSJDJTRB" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Gue</div>
-<a href="https://www.amazon.com/dp/1082354287" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6N4JSY" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6N4JSY.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Pink Cher" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Pink Cher</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Black and Gold Themed Decorations &amp; Supplies, Per</div>
-<a href="https://www.amazon.com/dp/B0BT6RHGQH" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Book for Best Wishes and Messages from Fami</div>
-<a href="https://www.amazon.com/dp/1702706419" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVTLRXF2" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVTLRXF2.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Pink Rose" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Pink Rose</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70 &amp; Fabulous Guest Book: Celebration 70th Birthday Party Keepsake Gift Book for Best Wishes and Messages from Family an</div>
-<a href="https://www.amazon.com/dp/170174418X" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Realistic Balloons Material Layered Elegant Glossy Cover Place for a Photo Cream Color Paper 1</div>
-<a href="https://www.amazon.com/dp/1087135435" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/170420710X" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/170420710X.jpg" alt="Retirement &amp; 70th Birthday Guest Book: Celebration Party Keepsake Gift Book for " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>Retirement &amp; 70th Birthday Guest Book: Celebration Party Keepsake Gift Book for </h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Black Gold and Grey Balloons Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTS6YBX1" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold Heart Balloons Themed Decorations &amp; Supplies</div>
-<a href="https://www.amazon.com/dp/B0BVCMM4PW" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1702125599" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1702125599.jpg" alt="70th Birthday Guest Book: Celebration Birthday Party Keepsake Gift Book for Best" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Celebration Birthday Party Keepsake Gift Book for Best</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Funny Ice Sheet-Frozen Cover Themed Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BT72XKC5" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold Ribbon and Glitter-Black Theme Decorations &amp;</div>
-<a href="https://www.amazon.com/dp/B0BTCXZZXT" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSJDJTRB" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSJDJTRB.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Royal Black and Gold Themed Decorations &amp; Supplie</div>
-<a href="https://www.amazon.com/dp/B0BSWV4JHJ" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Purple Balloon Hearts Themed Decorations &amp; Suppli</div>
-<a href="https://www.amazon.com/dp/B0BT6V58QL" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1082354287" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1082354287.jpg" alt="70th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a </h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Best Wishes for a Woman from Family and Friends to Write in, 120 Pages, Cream Paper, Glossy Go</div>
-<a href="https://www.amazon.com/dp/1072604450" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Cherry Blossom Pink Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, Guest Sign </div>
-<a href="https://www.amazon.com/dp/1077614098" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6RHGQH" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6RHGQH.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Black and" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Black and</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Yellow Balloons Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, Guest Sign in f</div>
-<a href="https://www.amazon.com/dp/107818156X" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Exotic Floral Pink Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, Guest Sign i</div>
-<a href="https://www.amazon.com/dp/1076844952" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1702706419" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1702706419.jpg" alt="70th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Boo" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Christmas Celebration Birthday Party Keepsake Gift Boo</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Glossy Cover Place for Photo Cream Color Pape</div>
-<a href="https://www.amazon.com/dp/1686334559" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Guest Sign</div>
-<a href="https://www.amazon.com/dp/107478202X" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/170174418X" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/170174418X.jpg" alt="70 &amp; Fabulous Guest Book: Celebration 70th Birthday Party Keepsake Gift Book for" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70 &amp; Fabulous Guest Book: Celebration 70th Birthday Party Keepsake Gift Book for</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake Gift Book for Best Wishes and Messages </div>
-<a href="https://www.amazon.com/dp/107369934X" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cover Place for a Photo Cream Color Paper 12</div>
-<a href="https://www.amazon.com/dp/1086375173" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1087135435" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1087135435.jpg" alt="70th Birthday Guest Book: Realistic Balloons Material Layered Elegant Glossy Cov" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Realistic Balloons Material Layered Elegant Glossy Cov</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy Cover Place for a Photo Cream Color Pape</div>
-<a href="https://www.amazon.com/dp/1086960416" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest Sign i</div>
-<a href="https://www.amazon.com/dp/1089084862" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTS6YBX1" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTS6YBX1.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Black Gol" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Black Gol</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Pink Balloon Heart Themed Decorations &amp; Supplies,</div>
-<a href="https://www.amazon.com/dp/B0BT75DH7P" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold Balloons and Heart Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT6RSQ5G" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVCMM4PW" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVCMM4PW.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold Hear" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold Hear</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Guest S</div>
-<a href="https://www.amazon.com/dp/1074706153" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: An Elegant Floral Keepsake for Her 70th Birthday Party - Includes Sign-In Pages, Wishes &amp; Memo</div>
-<a href="https://www.amazon.com/s?k=9788395705380" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT72XKC5" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT72XKC5.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Funny Ice" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Funny Ice</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 70 - Hardback with Pink Roses and Gold Theme</div>
-<a href="https://www.amazon.com/s?k=9788396816429" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 70 - Hardback with Black and Gold Themed Dec</div>
-<a href="https://www.amazon.com/s?k=9788396705808" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTCXZZXT" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTCXZZXT.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold Ribb" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold Ribb</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 70th Birthday Party - Includes Sign-In Pag</div>
-<a href="https://www.amazon.com/s?k=9788395823596" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a 70th Birthday Party - Includes Sign-In Pa</div>
-<a href="https://www.amazon.com/s?k=9788395823084" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSWV4JHJ" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSWV4JHJ.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Royal Bla" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Royal Bla</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">70th Birthday Guest Book: An Elegant Keepsake for a Milestone 70th Birthday Celebration - Silver and White Frosted Heart</div>
-<a href="https://www.amazon.com/s?k=9788395819438" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6V58QL" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6V58QL.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Purple Ba" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Purple Ba</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1072604450" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1072604450.jpg" alt="70th Birthday Guest Book: Best Wishes for a Woman from Family and Friends to Wri" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Best Wishes for a Woman from Family and Friends to Wri</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1077614098" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1077614098.jpg" alt="70th Birthday Guest Book: Cherry Blossom Pink Glossy Cover, Place for a Photo, C" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Cherry Blossom Pink Glossy Cover, Place for a Photo, C</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/107818156X" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/107818156X.jpg" alt="70th Birthday Guest Book: Yellow Balloons Glossy Cover, Place for a Photo, Cream" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Yellow Balloons Glossy Cover, Place for a Photo, Cream</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1076844952" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1076844952.jpg" alt="70th Birthday Guest Book: Exotic Floral Pink Glossy Cover, Place for a Photo, Cr" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Exotic Floral Pink Glossy Cover, Place for a Photo, Cr</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1686334559" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1686334559.jpg" alt="70th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Gloss" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Gloss</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/107478202X" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/107478202X.jpg" alt="70th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/107369934X" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/107369934X.jpg" alt="70th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1086375173" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1086375173.jpg" alt="70th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cove" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cove</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1086960416" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1086960416.jpg" alt="70th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1089084862" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1089084862.jpg" alt="70th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT75DH7P" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT75DH7P.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Pink Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Pink Ball</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6RSQ5G" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6RSQ5G.jpg" alt="70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold Ball" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Gift for Men and Women Turning 70 - Gold Ball</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1074706153" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1074706153.jpg" alt="70th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Phot" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Phot</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395705380" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395705380.jpg" alt="70th Birthday Guest Book: An Elegant Floral Keepsake for Her 70th Birthday Party" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: An Elegant Floral Keepsake for Her 70th Birthday Party</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788396816429" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788396816429.jpg" alt="70th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 70 -" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 70 -</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788396705808" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788396705808.jpg" alt="70th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 70 -" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 70 -</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395823596" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395823596.jpg" alt="70th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 70" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: A Sweet Pink Balloon Hearts Themed Keepsake for Her 70</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395823084" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395823084.jpg" alt="70th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a 7" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a 7</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395819438" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395819438.jpg" alt="70th Birthday Guest Book: An Elegant Keepsake for a Milestone 70th Birthday Cele" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>70th Birthday Guest Book: An Elegant Keepsake for a Milestone 70th Birthday Cele</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
 </div>
 
 </div>

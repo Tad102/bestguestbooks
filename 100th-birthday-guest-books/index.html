@@ -65,31 +65,64 @@ header p { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 a
 .cat-card .count { color: var(--muted); font-size: 0.9rem; }
 .cat-card .desc { color: var(--text); font-size: 0.95rem; margin-top: 8px; }
 
-/* Book list */
-.book-list { padding: 30px 0; }
-.book-item {
+/* Book grid */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px 0;
+}
+.book-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
 }
-.book-item:hover { border-color: var(--accent); }
-.book-title { flex: 1; font-size: 0.95rem; }
+.book-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.book-cover {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    background: #222;
+    display: block;
+}
+.book-info { padding: 12px; }
+.book-info h4 {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .book-btn {
+    display: block;
     background: var(--accent);
     color: #000;
-    padding: 8px 16px;
+    padding: 8px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 0.85rem;
-    white-space: nowrap;
+    font-size: 0.8rem;
+    text-align: center;
 }
 .book-btn:hover { background: var(--accent2); color: #000; }
+
+/* Category card cover previews */
+.cat-covers {
+    display: flex;
+    gap: 4px;
+    margin-top: 12px;
+}
+.cat-covers img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #222;
+}
 
 /* Breadcrumb */
 .breadcrumb { padding: 20px 0; color: var(--muted); font-size: 0.9rem; }
@@ -122,7 +155,7 @@ footer {
 @media (max-width: 768px) {
     header h1 { font-size: 1.8rem; }
     .categories { grid-template-columns: 1fr; }
-    .book-item { flex-direction: column; align-items: flex-start; }
+    .book-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 }
 </style>
 </head>
@@ -138,138 +171,303 @@ footer {
 <div class="affiliate-notice">Disclosure: This site contains affiliate links to Amazon. We may earn a small commission at no extra cost to you when you purchase through our links.</div>
 <p style="margin-bottom:20px; color: var(--muted);">Celebrate this incredible milestone with a beautiful 100th birthday guest book. Let friends and family write their heartfelt wishes, share memories, and leave messages that will be treasured for years to come.</p>
 <h2 style="margin-bottom:16px;">33 Guest Books Available</h2>
-<div class="book-list">
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Black and Gold Themed Decorations &amp; Supplies, P</div>
-<a href="https://www.amazon.com/dp/B0BT6TVZWL" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-grid">
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6TVZWL" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6TVZWL.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Black a" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Black a</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Gu</div>
-<a href="https://www.amazon.com/dp/1082335134" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Realistic Cherry Blossom Pink Glossy Cover, Place for a Photo, Cream Color Paper, 123 Pages, </div>
-<a href="https://www.amazon.com/dp/1077605315" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1082335134" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1082335134.jpg" alt="100th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Golden White Balloons Theme Glossy Cover, Place for a</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold Ribbon and Glitter-Black Theme Decorations</div>
-<a href="https://www.amazon.com/dp/B0BTCRSYYG" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold Heart Balloons Themed Decorations &amp; Suppli</div>
-<a href="https://www.amazon.com/dp/B0BVD2SF1C" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1077605315" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1077605315.jpg" alt="100th Birthday Guest Book: Realistic Cherry Blossom Pink Glossy Cover, Place for" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Realistic Cherry Blossom Pink Glossy Cover, Place for</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Black and Gold Themed Decorations &amp; Supplies, P</div>
-<a href="https://www.amazon.com/dp/B0BSJ6HW1M" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsake Gift Book for Best Wishes and Messages</div>
-<a href="https://www.amazon.com/dp/107371280X" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTCRSYYG" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTCRSYYG.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold Ri" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold Ri</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Christmas Celebration Hundredth Birthday Party Keepsake Gift Book for Best Wishes and Message</div>
-<a href="https://www.amazon.com/dp/1702710181" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Best Wishes for a Woman from Family and Friends to Write in, 120 Pages, Cream Paper, Glossy G</div>
-<a href="https://www.amazon.com/dp/107261166X" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVD2SF1C" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVD2SF1C.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold He" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold He</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold Balloons and Heart Themed Decorations &amp; Su</div>
-<a href="https://www.amazon.com/dp/B0BTBK7YLC" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Pink Balloon Heart Themed Decorations &amp; Supplie</div>
-<a href="https://www.amazon.com/dp/B0BT7XRVNP" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSJ6HW1M" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSJ6HW1M.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Black a" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Black a</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold and White Balloons Themed Decorations &amp; Su</div>
-<a href="https://www.amazon.com/dp/B0BT6VHSSK" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Purple Balloon Hearts Themed Decorations &amp; Supp</div>
-<a href="https://www.amazon.com/dp/B0BT733BWF" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/107371280X" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/107371280X.jpg" alt="100th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsak" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: For Celebration of a Birthday Party, Fabulous Keepsak</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Funny Ice Sheet-Frozen Cover Themed Decorations</div>
-<a href="https://www.amazon.com/dp/B0BTC51DYV" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold Text and Pink Red Roses Themed Decorations</div>
-<a href="https://www.amazon.com/dp/B0BTRN1TJ1" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1702710181" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1702710181.jpg" alt="100th Birthday Guest Book: Christmas Celebration Hundredth Birthday Party Keepsa" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Christmas Celebration Hundredth Birthday Party Keepsa</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Pink Roses and Golden Inscription Themed Decora</div>
-<a href="https://www.amazon.com/dp/B0BVSXFBQ2" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Royal Black and Gold Themed Decorations &amp; Suppl</div>
-<a href="https://www.amazon.com/dp/B0BSY4T8G6" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/107261166X" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/107261166X.jpg" alt="100th Birthday Guest Book: Best Wishes for a Woman from Family and Friends to Wr" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Best Wishes for a Woman from Family and Friends to Wr</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Black and Gold Balloons Themed Decorations &amp; Su</div>
-<a href="https://www.amazon.com/dp/B0BT8MQ4C3" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Pink Cherry Blossom Themed Decorations &amp; Suppli</div>
-<a href="https://www.amazon.com/dp/B0BT6XBCLD" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTBK7YLC" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTBK7YLC.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold Ba" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold Ba</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Guest Sign </div>
-<a href="https://www.amazon.com/dp/108909258X" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Guest </div>
-<a href="https://www.amazon.com/dp/1074712978" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT7XRVNP" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT7XRVNP.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Pink Ba" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Pink Ba</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo, Cream Color Paper, 120 Pages, Guest Sig</div>
-<a href="https://www.amazon.com/dp/1074791363" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for a Photo Cream Color Paper 123 Pages Gues</div>
-<a href="https://www.amazon.com/dp/1088837999" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6VHSSK" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6VHSSK.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold an" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold an</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy Cover Place for a Photo Cream Color Pap</div>
-<a href="https://www.amazon.com/dp/1086950917" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cover Place for a Photo Cream Color Paper 1</div>
-<a href="https://www.amazon.com/dp/1086357116" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT733BWF" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT733BWF.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Purple " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Purple </h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Glossy Cover Place for Photo Cream Color Pap</div>
-<a href="https://www.amazon.com/dp/1686344228" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Black Gold and Grey Balloons Themed Decorations</div>
-<a href="https://www.amazon.com/dp/B0BTRRLD8Q" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTC51DYV" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTC51DYV.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Funny I" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Funny I</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 100 - Hardback with Pink Roses and Gold The</div>
-<a href="https://www.amazon.com/s?k=9788396705860" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100 &amp; Fabulous: An Elegant Black and Gold 100th Birthday Guest Book &amp; Keepsake Journal for Her - Includes Sign-in Pages,</div>
-<a href="https://www.amazon.com/s?k=9788396705839" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTRN1TJ1" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTRN1TJ1.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold Te" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Gold Te</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">A Century of Love: A Sweet Pink Balloon Hearts Themed 100th Birthday Guest Book &amp; Keepsake for Her - Includes Sign-In Pa</div>
-<a href="https://www.amazon.com/s?k=9788395823756" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a 100th Birthday Party - Includes Sign-In </div>
-<a href="https://www.amazon.com/s?k=9788395823442" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BVSXFBQ2" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BVSXFBQ2.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Pink Ro" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Pink Ro</h4>
+<span class="book-btn">View on Amazon</span>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: An Elegant Keepsake for a Centennial Celebration - Silver and White Frosted Theme - Includes </div>
-<a href="https://www.amazon.com/s?k=9788395819490" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+</a>
 </div>
-<div class="book-item">
-<div class="book-title">100th Birthday Guest Book: An Elegant Floral Keepsake for Her 100th Birthday Party - Includes Sign-In Pages, Wishes &amp; Me</div>
-<a href="https://www.amazon.com/s?k=9788395817755" target="_blank" rel="noopener" class="book-btn">View on Amazon</a>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BSY4T8G6" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BSY4T8G6.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Royal B" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Royal B</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT8MQ4C3" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT8MQ4C3.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Black a" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Black a</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BT6XBCLD" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BT6XBCLD.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Pink Ch" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Pink Ch</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/108909258X" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/108909258X.jpg" alt="100th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Golden Ribbons Elegant Glossy Cover Place for a Photo</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1074712978" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1074712978.jpg" alt="100th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Pho" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Realistic Pink Balloons Glossy Cover, Place for a Pho</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1074791363" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1074791363.jpg" alt="100th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo," class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Golden Silver Hearts Glossy Cover, Place for a Photo,</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1088837999" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1088837999.jpg" alt="100th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: White Golden Balloons Elegant Glossy Cover Place for </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1086950917" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1086950917.jpg" alt="100th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Golden Balloons Black Background Theme Elegant Glossy</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1086357116" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1086357116.jpg" alt="100th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cov" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Golden White Hearts Balloons Theme Elegant Glossy Cov</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/1686344228" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/1686344228.jpg" alt="100th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Glos" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Realistic Golden White Balloons Confetti Elegant Glos</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/dp/B0BTRRLD8Q" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/B0BTRRLD8Q.jpg" alt="100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Black G" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Gift for Men and Women Turning 100 - Black G</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788396705860" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788396705860.jpg" alt="100th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 100" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: Keepsake Memory Journal for Men and Women Turning 100</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788396705839" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788396705839.jpg" alt="100 &amp; Fabulous: An Elegant Black and Gold 100th Birthday Guest Book &amp; Keepsake J" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100 &amp; Fabulous: An Elegant Black and Gold 100th Birthday Guest Book &amp; Keepsake J</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395823756" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395823756.jpg" alt="A Century of Love: A Sweet Pink Balloon Hearts Themed 100th Birthday Guest Book " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>A Century of Love: A Sweet Pink Balloon Hearts Themed 100th Birthday Guest Book </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395823442" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395823442.jpg" alt="100th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a " class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: An Elegant Gold Balloon Hearts Themed Keepsake for a </h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395819490" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395819490.jpg" alt="100th Birthday Guest Book: An Elegant Keepsake for a Centennial Celebration - Si" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: An Elegant Keepsake for a Centennial Celebration - Si</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
+</div>
+<div class="book-card">
+<a href="https://www.amazon.com/s?k=9788395817755" target="_blank" rel="noopener">
+<img src="https://m.media-amazon.com/images/P/9788395817755.jpg" alt="100th Birthday Guest Book: An Elegant Floral Keepsake for Her 100th Birthday Par" class="book-cover" loading="lazy">
+<div class="book-info">
+<h4>100th Birthday Guest Book: An Elegant Floral Keepsake for Her 100th Birthday Par</h4>
+<span class="book-btn">View on Amazon</span>
+</div>
+</a>
 </div>
 
 </div>
