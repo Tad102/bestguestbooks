@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bestguestbooks.vercel.app/sitemap.xml
